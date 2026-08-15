@@ -128,9 +128,13 @@
       }
     ];
     ctrl.validateVolume = function () {
+      // The destination must be an absolute path: docker rejects a relative
+      // one at create time ("mount path must be absolute"), long after this
+      // dialog is gone, and the container just lands in Error.
       return !((ctrl.model.type === "cinder-available" && ctrl.model.source) ||
                (ctrl.model.type === "cinder-new" && ctrl.model.size)) ||
-             !ctrl.model.destination;
+             !ctrl.model.destination ||
+             ctrl.model.destination.charAt(0) !== "/";
     };
   }
 })();

@@ -6,7 +6,7 @@
         fill: lighten(blue, 20%);
       }
       &.margin {
-        fill: $gray-lighter;
+        fill: #eee;
       }
     }
   }
@@ -19,7 +19,7 @@
           background-color: lighten(blue, 20%);
         }
         &.margin {
-          background-color: $gray-lighter;
+          background-color: #eee;
         }
       }
       .chartless {
@@ -27,7 +27,7 @@
           color: lighten(blue, 20%);
         }
         &.margin {
-          color: $gray-lighter;
+          color: #eee;
         }
       }
     }
@@ -39,7 +39,7 @@
       color: lighten(blue, 20%);
     }
     &.margin {
-      color: $gray-lighter;
+      color: #eee;
     }
   }
 }
