@@ -116,6 +116,23 @@
             type: "number",
             minimum: 0
           },
+          pids_limit: {
+            title: gettext("PIDs Limit"),
+            type: "number",
+            minimum: 8,
+            maximum: 32768
+          },
+          memory_swap: {
+            title: gettext("Memory+Swap (MB)"),
+            type: "number",
+            minimum: -1
+          },
+          blkio_weight: {
+            title: gettext("Block IO Weight"),
+            type: "number",
+            minimum: 10,
+            maximum: 1000
+          },
           availability_zone: {
             title: gettext("Availability Zone"),
             type: "string"
@@ -279,6 +296,39 @@
                       key: "disk",
                       step: 1,
                       placeholder: gettext("The disk size in GiB for per container.")
+                    }
+                  ]
+                },
+                {
+                  type: "section",
+                  htmlClass: "col-xs-6",
+                  items: [
+                    {
+                      key: "pids_limit",
+                      step: 1,
+                      placeholder: gettext("Max processes in the container. Empty = operator default.")
+                    }
+                  ]
+                },
+                {
+                  type: "section",
+                  htmlClass: "col-xs-6",
+                  items: [
+                    {
+                      key: "memory_swap",
+                      step: 1,
+                      placeholder: gettext("Memory+swap total in MB. Equal to memory = no swap; -1 = unlimited.")
+                    }
+                  ]
+                },
+                {
+                  type: "section",
+                  htmlClass: "col-xs-6",
+                  items: [
+                    {
+                      key: "blkio_weight",
+                      step: 1,
+                      placeholder: gettext("Relative disk IO weight, 10-1000.")
                     }
                   ]
                 },
