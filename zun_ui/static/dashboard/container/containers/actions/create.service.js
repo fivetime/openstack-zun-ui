@@ -79,19 +79,6 @@
     }
 
     function submit(context) {
-      // The API takes memory+swap as one total, because that is what the
-      // runtime takes. A tenant should not have to do that arithmetic, nor
-      // discover by way of a container in Error that a number below its
-      // memory limit is a contradiction rather than a small allowance.
-      if (context.model.swap !== "" && context.model.swap !== null &&
-          angular.isDefined(context.model.swap)) {
-        var mem = parseInt(context.model.memory, 10);
-        var swp = parseInt(context.model.swap, 10);
-        if (!isNaN(mem) && !isNaN(swp)) {
-          context.model.memory_swap = mem + swp;
-        }
-      }
-      delete context.model.swap;
       delete context.model.exit_policy;
       if (context.model.restart_policy === "on-failure") {
         if (!context.model.restart_policy_max_retry) {

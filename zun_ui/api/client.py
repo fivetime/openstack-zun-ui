@@ -127,7 +127,7 @@ def _cleanup_params(attrs, check, **params):
             run = value
         elif key == "cpu":
             args[key] = float(value)
-        elif key in ("memory", "disk", "pids_limit", "memory_swap",
+        elif key in ("memory", "disk", "pids_limit", "swap",
                      "blkio_weight", "device_read_bps", "device_write_bps",
                      "device_read_iops", "device_write_iops"):
             # integer fields: the generic branch below would stringify them
