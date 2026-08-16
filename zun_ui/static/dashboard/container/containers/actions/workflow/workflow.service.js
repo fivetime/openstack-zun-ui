@@ -122,10 +122,10 @@
             minimum: 8,
             maximum: 32768
           },
-          memory_swap: {
-            title: gettext("Memory+Swap (MB)"),
+          swap: {
+            title: gettext("Swap (MB)"),
             type: "number",
-            minimum: -1
+            minimum: 0
           },
           blkio_weight: {
             title: gettext("Block IO Weight"),
@@ -315,9 +315,9 @@
                   htmlClass: "col-xs-6",
                   items: [
                     {
-                      key: "memory_swap",
+                      key: "swap",
                       step: 1,
-                      placeholder: gettext("Memory+swap total in MB. Equal to memory = no swap; -1 = unlimited.")
+                      placeholder: gettext("Swap the container may use on top of its memory. 0 = no swap. Empty = operator default.")
                     }
                   ]
                 },
@@ -561,6 +561,7 @@
         runtime: "",
         cpu: "",
         memory: "",
+        swap: "",
         disks: "",
         availability_zone: "",
         exit_policy: "",
