@@ -110,10 +110,13 @@
     function cleanUpdateProperties(model) {
       // Initially clean fields that don't have any value.
       // Not only "null", blank too.
-      // only "cpu" and "memory" fields are editable.
+      // Only what the API will take on an update survives; anything else
+      // reaches it as a field it refuses, and the dialog fails on a value
+      // the tenant never meant to change.
+      var editable = ["name", "cpu", "memory", "swap", "nets"];
       for (var key in model) {
         if (model.hasOwnProperty(key) && model[key] === null || model[key] === "" ||
-            (key !== "name" && key !== "cpu" && key !== "memory" && key !== "nets")) {
+            editable.indexOf(key) === -1) {
           delete model[key];
         }
       }
